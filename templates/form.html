@@ -1,0 +1,32 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>번역 서비스</title>
+</head>
+<body>
+    <h1>번역 서비스</h1>
+    <form method="post">
+        <label for="language">번역할 언어:</label>
+        <select name="language" id="language">
+            <option value="spanish">스페인어</option>
+            <option value="french">프랑스어</option>
+            <option value="german">독일어</option>
+            <option value="italian">이탈리아어</option>
+            <option value="english">영어</option>
+            <option value="korean">한국어</option>
+            <!-- 필요한 언어를 추가할 수 있습니다 -->
+        </select>
+        <br><br>
+        <label for="text">번역할 텍스트:</label><br>
+        <textarea name="text" id="text" rows="4" cols="50">{{ text if text else "" }}</textarea>
+        <br><br>
+        <input type="submit" value="번역">
+    </form>
+
+    {% if result %}
+    <h2>번역 결과 ({{ language }}):</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
